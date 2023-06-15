@@ -2,11 +2,14 @@
 # Takes variable value as a parameter only
 # write code for to traverse the binary tree using inorder, preorder and postorder
 class TreeNode:
+
+    # Constructor
     def __init__(self, value):
         self.left = None
         self.value = value
         self.right = None
 
+    # Procedure insert() will insert an object into the binary tree at its correct position.
     def insert(self, value):
         if self.value > value:
             if self.left is None:
@@ -19,6 +22,7 @@ class TreeNode:
             else:
                 self.right.insert(value)
 
+    # Procedure inorder() will traverse the binary tree inorderly.
     def inorder(self):
         if self.left is not None:
             self.left.inorder()
@@ -26,13 +30,17 @@ class TreeNode:
         if self.right is not None:
             self.right.inorder()
 
+
+    # Procedure preorder() will traverse the binary tree preorderly.
     def preorder(self):
         print(self.value)
         if self.left is not None:
             self.left.preorder()
         if self.right is not None:
             self.right.preorder()
+    
 
+    # Procedure postorder() will traverse the binary tree postorderly.
     def postorder(self):
         if self.left is not None:
             self.left.postorder()

@@ -1,6 +1,6 @@
 # Given a 1D array of integer data type
-
 arr = [2, 5, 2, 7, 23, 605, 1, 54, 89, 2030, 10]
+
 
 # function for a linear search to find the value 605 and return its position in the array
 def linearSearch(search):
@@ -22,11 +22,11 @@ def iterativeBinarySearch(search):
     while low <= high:
         mid = (high + low) // 2
 
-        # If x is greater, ignore left half
+        # If element is smaller than mid, then it can only be present in right subarray
         if arr[mid] < search:
             low = mid + 1
 
-        # If x is smaller, ignore right half
+        # Else if element is smaller than mid, then it can only be present in left subarray
         elif arr[mid] > search:
             high = mid - 1
         else:
@@ -35,6 +35,7 @@ def iterativeBinarySearch(search):
     return None
 
 # function for a binary seatch to find the value 605 and return its position in the array
+# definition: A subarray is an small array which is from a section of a bigger array
 def recursiveBinarySearch(low, high, search):
     global arr
     # Check base case
@@ -46,8 +47,7 @@ def recursiveBinarySearch(low, high, search):
         if arr[mid] == search:
             return mid
 
-        # If element is smaller than mid, then it can only
-        # be present in left subarray
+        # If element is smaller than mid, then it can only be present in left subarray
         elif arr[mid] > search:
             return recursiveBinarySearch(low, mid - 1, search)
 

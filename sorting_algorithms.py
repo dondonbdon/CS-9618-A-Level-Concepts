@@ -10,18 +10,6 @@ def bubbleSort(arr):
     return arr
 
 
-def bubbleSort2(arr):
-    passes = len(arr)
-    swaps = len(arr) - 1
-
-    for _ in range(passes):
-        for y in range(swaps):
-            if arr[y] < arr[y + 1]:
-                temp = arr[y]
-                arr[y] = arr[y + 1]
-                arr[y + 1] = temp
-
-
 # Function to sort the values in ascending order using insertion sort
 def insertionSort(arr):
     for i in range(1, len(arr)):
@@ -62,9 +50,9 @@ def insertionSortReverse(arr):
 
 
 # Test sorting algorithms by printing old array and new array
-#print([2, 5, 2, 7, 23, 605, 1, 54, 89, 2030, 10])
-#print("BUBBLE SORT 1:", bubbleSort([2, 5, 2, 7, 23, 605, 1, 54, 89, 2030, 10]))
-#print("BUBBLE SORT 2:", bubbleSort([2, 5, 2, 7, 23, 605, 1, 54, 89, 2030, 10]))
-#print("INSERTION SORT:", insertionSort([2, 5, 2, 7, 23, 605, 1, 54, 89, 2030, 10]))
-#print("REVERSE BUBBLE SORT:", bubbleSortReverse([2, 5, 2, 7, 23, 605, 1, 54, 89, 2030, 10]))
-#print("REVERSE INSERTION SORT:", insertionSortReverse([2, 5, 2, 7, 23, 605, 1, 54, 89, 2030, 10]))
+print([2, 5, 2, 7, 23, 605, 1, 54, 89, 2030, 10])
+print("BUBBLE SORT 1:", bubbleSort([2, 5, 2, 7, 23, 605, 1, 54, 89, 2030, 10]))
+print("BUBBLE SORT 2:", bubbleSort([2, 5, 2, 7, 23, 605, 1, 54, 89, 2030, 10]))
+print("INSERTION SORT:", insertionSort([2, 5, 2, 7, 23, 605, 1, 54, 89, 2030, 10]))
+print("REVERSE BUBBLE SORT:", bubbleSortReverse([2, 5, 2, 7, 23, 605, 1, 54, 89, 2030, 10]))
+print("REVERSE INSERTION SORT:", insertionSortReverse([2, 5, 2, 7, 23, 605, 1, 54, 89, 2030, 10]))
