@@ -48,6 +48,8 @@ Namely:
     You will learn that in python theres a few operators that you can use in programs to perform calculations.
     You will learn about the math library and its useful functions.
 
+11. [Random](random_algorithms.py)\n
+    In this program you will see an assortment of useful and random programs that will help you learn programming etcetra.
 
 Please use these programs as you see fit.
 Do understand i am still learning and may have made a mistake somewhere or there may be easier ways to do some code do not hesitate to create your pull requests.
