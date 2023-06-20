@@ -1,7 +1,7 @@
 # Important Steps Before you start
 # In the current directory you will see a file called 'instagram_users.txt'
 # Download or copy its contents and put it somewhere on your computer.
-# Go to line 35 and replace the text with the path of the instagram_users.txt file on your computer.
+# Go to line 37 of this file and replace the text with the path of the instagram_users.txt file on your computer.
 # Failure to do so will mean the program won't run as intended.
 # Godspeed
 
@@ -91,12 +91,14 @@ for item in InstaUsersArray:
     arr.append(item.getUsername())
     arr.append(item.getFollowers())
 
+# Define a path for where you want to create store the new instagram_users2.
 path2 = 'instagram_users2.txt'
 
 file2 = open(path2, 'w')
 for line in arr:
     print(line)
     file2.write(str(line) + '\n')
+file2.close()
 
 # Expected result from the text file instagram_users2 is:
 # JOHN
