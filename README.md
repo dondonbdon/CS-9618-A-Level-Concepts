@@ -6,7 +6,7 @@ This is a repository containing a few of the concepts that are needed for one to
 Namely: 
 1. [Binary Tree](binary_tree_algorithm.py)
 
-   In the binary tree file you will see steps as to how you can create a binary tree using a class.
+   In the binary tree program you will see steps as to how you can create a binary tree using a class.
    You will also create functions where you can do an insert, an inorder traversal of the tree, a preorder traversal of the tree and finally a post order
    traversal of the tree
    
@@ -22,12 +22,13 @@ Namely:
    You will see how in a file you will have to create a class to match outputs for the data inside of the file.
    You will extract and manipulate the data inside of the file. Learn about opening files in different modes. 
 
-4. [Queue(ADT)](queue_algorithm.py)
+4. [Queue (ADT)](queue_algorithm.py)
 
    In the queues program you will learn how to implement the abstract data type, the queue.
    You will see steps as to which pointers are created and how they are created also the enqueue and dequeue functions.
    
 5. Linked List(ADT) - Coming Soon!
+
 
 6. [Recursion](recursion_algorithm.py)
 
