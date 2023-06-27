@@ -96,8 +96,8 @@ path2 = 'instagram_users2.txt'
 
 file2 = open(path2, 'w')
 for line in arr:
-    print(line)
     file2.write(str(line) + '\n')
+
 file2.close()
 
 # Expected result from the text file instagram_users2 is:
@@ -116,6 +116,6 @@ file2.close()
 # ZIGGY
 # ziggler
 # 59
-# Robert Dowser
+# ROBERT
 # robert
 # 69

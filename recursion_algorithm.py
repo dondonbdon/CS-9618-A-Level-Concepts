@@ -51,8 +51,8 @@ def recursive_compound_interest(p, r, t):
 
 
 # Print the 10 factorial iteratively and recursively in the form:
-# iterative <answer>
-# recursive <answer>
+# iterative factorial <answer>
+# recursive factorial <answer>
 n = 10
 print('iterative factorial', iterative_factorial(n))
 print('recursive factorial', recursive_factorial(n))
@@ -62,7 +62,7 @@ print('recursive fibonacci', recursive_fibonacci(n))
 p = 1_000
 r = 0.01
 t = 10
-print('iterative compound interest', f'{(math.ceil(iterative_compound_interest(p, r, t))):_}')
-print('recursive compound interest', f'{(math.ceil(recursive_compound_interest(p, r, t))):_}')
+print('iterative compound interest', f'{(math.ceil(iterative_compound_interest(p, r, t))): }')
+print('recursive compound interest', f'{(math.ceil(recursive_compound_interest(p, r, t))): }')
 
 

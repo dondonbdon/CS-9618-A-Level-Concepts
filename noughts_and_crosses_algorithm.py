@@ -1,38 +1,34 @@
 # Game of noughts and crosses / tic-tac-toe / x and o's
 
-gridArr = [['' for j in range(3)] for i in range(3)]
+grid = [['' for j in range(3)] for i in range(3)]
 occupied = []
 player = True
 
-def out_item(i, j):
-    if gridArr[i][j] == 'X' or gridArr[i][j] == 'O':
+
+def output_visual_backspacer(i, j):
+    if grid[i][j] == 'X' or grid[i][j] == 'O':
         return '\b'
     else:
         return ''
 
 
-def un_out():
-    for i in range(50):
-        print("\b")
-
-
-def output_game():
+def output_visual():
     print(f'''
         0       1       2
      ________________________
     |	    |	    |	     |
-0   |   {gridArr[0][0]}    {out_item(0, 0)}|   {gridArr[0][1]}    {out_item(0, 1)}|    {gridArr[0][2]}    {out_item(0, 2)}|
+0   |   {grid[0][0]}    {output_visual_backspacer(0, 0)}|   {grid[0][1]}    {output_visual_backspacer(0, 1)}|    {grid[0][2]}    {output_visual_backspacer(0, 2)}|
     |_______|_______|________|
     |	    |	    |	     |
-1   |   {gridArr[1][0]}    {out_item(1, 0)}|   {gridArr[1][1]}    {out_item(1, 1)}|    {gridArr[1][2]}    {out_item(1, 2)}|
+1   |   {grid[1][0]}    {output_visual_backspacer(1, 0)}|   {grid[1][1]}    {output_visual_backspacer(1, 1)}|    {grid[1][2]}    {output_visual_backspacer(1, 2)}|
     |_______|_______|________|
     |	    |	    | 	     |
-2   |   {gridArr[2][0]}    {out_item(2, 0)}|   {gridArr[2][1]}    {out_item(2, 1)}|    {gridArr[2][2]}    {out_item(2, 2)}|
+2   |   {grid[2][0]}    {output_visual_backspacer(2, 0)}|   {grid[2][1]}    {output_visual_backspacer(2, 1)}|    {grid[2][2]}    {output_visual_backspacer(2, 2)}|
     |_______|_______|________|
 ''')
 
 
-def status():
+def gane_status():
     combinations = [[[0, 0], [0, 1], [0, 2]],
                     [[1, 0], [1, 1], [1, 2]],
                     [[2, 0], [2, 1], [2, 2]],
@@ -43,9 +39,9 @@ def status():
                     [[0, 2], [1, 1], [2, 0]]]
 
     for combination in combinations:
-        value1 = gridArr[combination[0][0]][combination[0][1]]
-        value2 = gridArr[combination[1][0]][combination[1][1]]
-        value3 = gridArr[combination[2][0]][combination[2][1]]
+        value1 = grid[combination[0][0]][combination[0][1]]
+        value2 = grid[combination[1][0]][combination[1][1]]
+        value3 = grid[combination[2][0]][combination[2][1]]
 
         if value1 == 'X' and value2 == 'X' and value3 == 'X':
             return 0
@@ -55,73 +51,72 @@ def status():
     return -1
 
 
-def valid(st):
+def validate_input(res):
+    for i in occupied:
+        if res == i:
+            return False
+    
     combinations = ['00', '01', '02', '10', '11', '12', '20', '21', '22']
     for s in combinations:
-        if s == st.strip():
+        if s == res.strip():
             return True
     else:
         return False
 
 
-def parse(st):
+def parse(res):
     arr = []
-    for i in list(st):
+    for i in list(res):
         arr.append(int(i))
-
+    arr.reverse()
     return arr
 
 
-def add(grid_pos):
+def on_play(grid_pos):
     gp = parse(grid_pos)
-    occupied.append(gp)
-
+    
+    occupied.append(grid_pos)
     if player:
-        gridArr[gp[0]][gp[1]] = 'X'
+        grid[gp[0]][gp[1]] = 'X'
     else:
-        gridArr[gp[0]][gp[1]] = 'O'
-
-
-def get_row_size(i):
-    size = 0
-    for j in range(3):
-        if gridArr[i][j] == 'X' or gridArr[i][j] == 'O':
-            size += 1
-    return size
+        grid[gp[0]][gp[1]] = 'O'
 
 
 def get_grid_size():
     size = 0
     for i in range(3):
         for j in range(3):
-            if gridArr[i][j] == 'X' or gridArr[i][j] == 'O':
+            if grid[i][j] == 'X' or grid[i][j] == 'O':
                 size += 1
 
     return size
 
 
-def get_player():
+def get_current_player():
     if player:
         return 0
 
     return 1
 
+def polarise( val):
+    return not val
 
 def start_game():
     global player
-    while get_grid_size() < 9 and status() == -1:
-        st = input(f'Player{get_player()} - Enter your desired grid: ')
-        while not valid(st):
-            st = input(f'Player{get_player()} - Enter your desired grid: ')
+    while get_grid_size() < 9 and gane_status() == -1:
+        res = input(f'Player {get_current_player()}: ')
+        while not validate_input(res):
+            res = input(
+                f'Player {get_current_player()}: ')
 
-        add(st)
-        output_game()
-        player = not player
+        on_play(res)
+        output_visual()
+        player = polarise(player)
     else:
-        if status() == 0:
-            print(f'Player0 won')
-        elif status() == 1:
-            print(f'Player1 won')
+        if gane_status() == 0:
+            print('Player 0 won')
+        elif gane_status() == 1:
+            print('Player 1 won')
         else:
             print('Draw')
 
